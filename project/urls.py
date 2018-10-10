@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.views import GetDownloadData, GetLatestRate
+from django.conf.urls import url
+from apps.views import GetDownloadData, GetLatestRate, GetDateRate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('getdownloaddata', GetDownloadData.as_view(), name='getdownloaddata'),
-    path('rates/latest', GetLatestRate.as_view(), name='getratelatest')
+    path('rates/latest', GetLatestRate.as_view(), name='getratelatest'),
+    url(r'^rates/(?P<date>\d{4}-\d{2}-\d{2})/$', GetDateRate.as_view(), name='getdaterate'),
 ]

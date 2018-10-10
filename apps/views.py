@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from apps.models import CubeHeader, CubeDetail
 from xml.dom import minidom
 from urllib.request import urlopen
+from datetime import datetime
 
 import os
 import json
@@ -31,6 +32,38 @@ class GetDownloadData(APIView):
 class GetLatestRate(APIView):
     def get(self, request):
         cube_header = CubeHeader.objects.all().order_by('time').last()
-        cube_detail = CubeDetail.objects.filter(cube_header_id = cube_header.id)
-        return Response(base)
+        ret = []
+
+        if cube_header is not None:
+            cube_detail = CubeDetail.objects.filter(cube_header_id = cube_header.id)
+
+            for base in cube_detail:
+                rate_list = {}
+                for child in cube_detail:
+                    if base.currency != child.currency:
+                        rate_list.update({child.currency : float("%0.4f" % (base.rate / child.rate))})
+                ret.append({
+                    "base" : base.currency,
+                    "rates" : rate_list
+                })
+        return Response(ret)
+
+class GetDateRate(APIView):
+    def get(self, request, date):
+        cube_header = CubeHeader.objects.filter(time=date).last()
+        ret = []
+
+        if cube_header is not None:
+            cube_detail = CubeDetail.objects.filter(cube_header_id = cube_header.id)
+
+            for base in cube_detail:
+                rate_list = {}
+                for child in cube_detail:
+                    if base.currency != child.currency:
+                        rate_list.update({child.currency : float("%0.4f" % (base.rate / child.rate))})
+                ret.append({
+                    "base" : base.currency,
+                    "rates" : rate_list
+                })
+        return Response(ret)
             
