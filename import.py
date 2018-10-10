@@ -1,5 +1,4 @@
 import pymysql
-from xml.dom import minidom
 
 
 # sudo apt-get install python3-pymysql
@@ -40,18 +39,6 @@ def get_latest_cube_detail(max_id):
 
 
 # TO DOWNLOAD XML DATA AND INSERT IT TO DATABASE
-# xmldoc = minidom.parse('eurofxref-hist-90d.xml')
-# cubelist = xmldoc.getElementsByTagName('Cube')
-# for cube in cubelist:
-# 	cube_time_childs = cube.childNodes
-# 	if len(cube_time_childs) > 0:
-# 		for cube_time in cube_time_childs:
-# 			cube_time_childs = cube_time.childNodes
-# 			if len(cube_time_childs) > 0:
-# 				time = cube_time.attributes['time'].value
-# 				cube_header_id = insert_cube_header(time)
-# 				for cube in cube_time_childs:
-# 					insert_cube_detail(cube_header_id, cube.attributes['currency'].value, cube.attributes['rate'].value)
 
 # get latest cube detail (unfinished)
 # get_latest_cube_detail(id)

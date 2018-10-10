@@ -1,4 +1,4 @@
-"""testing URL Configuration
+"""project URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from apps.views import GetDownloadData, GetLatestRate
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('getdownloaddata', GetDownloadData.as_view(), name='getdownloaddata'),
+    path('rates/latest', GetLatestRate.as_view(), name='getratelatest')
 ]
