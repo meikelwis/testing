@@ -35,11 +35,12 @@ class GetLatestRate(APIView):
         ret = []
 
         if cube_header is not None:
-            cube_detail = CubeDetail.objects.filter(cube_header_id = cube_header.id)
+            cube_detail = CubeDetail.objects.filter(cube_header_id = cube_header.id).order_by('rate')
+            cube_other = CubeDetail.objects.filter(cube_header_id = cube_header.id).order_by('-rate')
 
             for base in cube_detail:
                 rate_list = {}
-                for child in cube_detail:
+                for child in cube_other:
                     if base.currency != child.currency:
                         rate_list.update({child.currency : float("%0.4f" % (base.rate / child.rate))})
                 ret.append({
@@ -54,11 +55,12 @@ class GetDateRate(APIView):
         ret = []
 
         if cube_header is not None:
-            cube_detail = CubeDetail.objects.filter(cube_header_id = cube_header.id)
+            cube_detail = CubeDetail.objects.filter(cube_header_id = cube_header.id).order_by('rate')
+            cube_other = CubeDetail.objects.filter(cube_header_id = cube_header.id).order_by('-rate')
 
             for base in cube_detail:
                 rate_list = {}
-                for child in cube_detail:
+                for child in cube_other:
                     if base.currency != child.currency:
                         rate_list.update({child.currency : float("%0.4f" % (base.rate / child.rate))})
                 ret.append({
