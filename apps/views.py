@@ -4,8 +4,6 @@ from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from apps.models import Currency, CurrencyRate
-from xml.dom import minidom
-from urllib.request import urlopen
 from datetime import datetime, timedelta
 
 import os
