@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
-from apps.views import GetDownloadData, GetLatestRate, GetDateRate
+from apps.views import InputCurrency, InputCurrencyRate, ListExchangeRate, ListExchangeRateTrend
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('getdownloaddata', GetDownloadData.as_view(), name='getdownloaddata'),
-    path('rates/latest', GetLatestRate.as_view(), name='getratelatest'),
-    url(r'^rates/(?P<date>\d{4}-\d{2}-\d{2})/$', GetDateRate.as_view(), name='getdaterate'),
+    path('inputcurrency', InputCurrency.as_view(), name='inputcurrency'),
+    path('inputcurrencyrate', InputCurrencyRate.as_view(), name='inputcurrencyrate'),
+    path('listexchangerate', ListExchangeRate.as_view(), name='listexchangerate'),
+    path('listexchangeratetrend', ListExchangeRateTrend.as_view(), name='listexchangeratetrend'),
 ]
