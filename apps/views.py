@@ -222,14 +222,6 @@ class ListExchangeRate(APIView):
 class ListExchangeRateTrend(APIView):
     def get(self, request):
         message = {}
-        errors = []
-        
-        if len(errors) > 0:
-            message = {
-                "errors" : errors
-            }
-            return Response(message, status = status.HTTP_400_BAD_REQUEST)
-
         currencys = Currency.objects.all()
         data = {}
         currency = []
