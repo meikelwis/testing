@@ -24,8 +24,7 @@ A step by step series of examples that tell you how to get a development env run
 3. Make sure pip version is pip >=18 by running pip --version. If it's not, run pip install --upgrade pip
 4. Change directory to project folder and run pip install -r requirements.txt
 5. Change .env file and adjust it with local configuration
-6. Run python manage.py migrate to finish the migration
-7. Run python manage.py runserver
+6. Run docker-composer up
 
 ```
 
