@@ -19,13 +19,7 @@ These project run on Ubuntu 16.04 and 18.04. Things you need to install and how 
 A step by step series of examples that tell you how to get a development env running
 
 ```
-1. Initialize using command virtualenv -p python3 env
-2. Activate virtualenv using source env/bin/activate
-3. Make sure pip version is pip >=18 by running pip --version. If it's not, run pip install --upgrade pip. Make sure that you aleady install docker-compose so that the web service can be run
-4. Change directory to project folder and run pip install -r requirements.txt
-5. Change .env file and adjust it with local configuration
-6. Run docker-compose up
-
+1. Make sure that docker has successfuly installed.
 ```
 
 ## Running the tests
