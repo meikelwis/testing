@@ -8,18 +8,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-These project run on Ubuntu 16.04 and 18.04. Things you need to install and how to install them
-
-1. Virtualenv using python3 using command sudo apt install virtualenv
-2. Pip using command sudo apt install python3-pip
-3. Installing docker https://docs.docker.com/compose/install/#install-compose 
+These project run on Ubuntu 16.04 and 18.04.
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
 ```
-1. Make sure that docker has successfuly installed.
+1. Change .env file and adjust it with local configuration
+2. Run docker-compose up
+
 ```
 
 ## Running the tests
@@ -40,4 +38,4 @@ A step by step series of examples that tell you how to get a development env run
 ## Built With
 
 * [Django](https://docs.djangoproject.com/en/2.1/) - The web framework used
-* [Pip](https://pypi.org/project/Django/) - Dependency Management
+* [Docker](https://docs.docker.com/compose/install/#install-compose ) - Container
