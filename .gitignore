@@ -1,0 +1,17 @@
+.vscode/*
+###ENVIRONMENT###
+env/*
+*.pyc
+/fabfile.py
+.env
+.env.prod
+.env.testing
+###LOG FILES###
+*.log
+###STATIC FILES###
+static/
+###PUBLIC REPO###
+main/public/*
+###CERT IGNORE###
+*.crt
+*.key

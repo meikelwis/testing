@@ -12,6 +12,7 @@ These project run on Ubuntu 16.04 and 18.04. Things you need to install and how 
 
 1. Virtualenv using python3 using command sudo apt install virtualenv
 2. Pip using command sudo apt install python3-pip
+3. Installing docker https://docs.docker.com/compose/install/#install-compose 
 
 ### Installing
 
